@@ -11,41 +11,44 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar k\n");
         return 1;
     }
-        // prompt user for string
-        printf("plaintext: ");
-        string plain = get_string();
-        printf("ciphertext: ");
-        for (int i = 0, n = strlen(plain); i < n; i++)
+    // prompt user for string
+    printf("plaintext: ");
+    string plain = get_string();
+    printf("ciphertext: ");
+    for (int i = 0, n = strlen(plain); i < n; i++)
+    {
+        int key = atoi(argv[1]);
+        int letter = (int)plain[i];
+        // only change letters and leave spaces, commas, etc. alone
+        if isalpha(letter)
         {
-            int key = atoi(argv[1]);
-            int letter = (int)plain[i];
-            // only change letters and leave spaces, commas, etc. alone
-            if isalpha(letter)
-            {
-                int cipher = letter + key;
+            int cipher = letter + key;
 
-                // ensure that z wraps back around to a
-                if (letter >= 65 && letter <= 90)
-                {
-                    while (cipher > 90)
-                    {
-                        cipher -= 26;
-                    }
-                }
-                if (letter >= 97 && letter <= 122)
-                {
-                    while (cipher > 122)
-                    {
-                        cipher -= 26;
-                    }
-                }
-                printf("%c", cipher);
-            }
-            else
+            // ensure that z wraps back around to a
+            //preserve uppercase letters
+            if (letter >= 65 && letter <= 90)
             {
-                printf("%c", plain[i]);
+                while (cipher > 90)
+                {
+                    cipher -= 26;
+                }
             }
+            //preserve lowercase letters
+            if (letter >= 97 && letter <= 122)
+            {
+                while (cipher > 122)
+                {
+                    cipher -= 26;
+                }
+            }
+            printf("%c", cipher);
         }
-        printf("\n");
-        return 0;
+        // leave non-alphabetical characters alone
+        else
+        {
+            printf("%c", plain[i]);
+        }
+    }
+    printf("\n");
+    return 0;
 }
