@@ -36,7 +36,7 @@ for i in range(len(plain)):
                 cipher -= 26
 
         print(f"{chr(cipher)}", end="")
-        counter += 1;
+        counter += 1
 
     # If not an alphabet character, leave it alone
     else:
