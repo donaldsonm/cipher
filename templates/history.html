@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table border = "1" align = "center" cellpadding = "10">
+        <tr>
+            <th> Symbol </th>
+            <th> Shares </th>
+            <th> Price </th>
+            <th> Transacted </th>
+        </tr>
+    {% for item in history %}
+        <tr>
+            <td> {{ item.symbol }} </td>
+            <td> {{ item.amount }} </td>
+            <td> {{ usd(item.totalprice) }} </td>
+            <td> {{ item.datetime }} </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
