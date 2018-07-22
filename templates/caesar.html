@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Encrypt
+{% endblock %}
+
+{% block main %}
+    <div id="header">
+        <h1>Caesar Cipher</h1>
+    </div>
+    <div id="content">
+            <form id="caesarform" method="post">
+                <div class="form-group">
+                    <textarea class="form-control" name="text" id="text" placeholder="Input text" rows="10"></textarea>
+                    <p></p>
+                </div>
+                <div class="extra">
+                    Shift: <input class="form-control" name="shift" id="shift" type="number"/>
+                    <p>&nbsp;</p>
+                </div>
+                <div>
+                    <button class="btn btn-success" type="submit" name="submit" id="encrypt_caesar" value="encrypt">Encrypt</button>
+                    <button class="btn btn-success" type="submit" name="submit" id="decrypt_caesar" value="decrypt">Decrypt</button>
+                    <p>&nbsp;</p>
+                </div>
+            </form>
+            <textarea readonly class="form-control" id="result" name="result" rows="10"></textarea>
+    </div>
+{% endblock %}

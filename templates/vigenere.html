@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Encrypt
+{% endblock %}
+
+{% block main %}
+    <div id="header">
+        <h1>Vigenère Cipher</h1>
+    </div>
+    <div id="content">
+            <form id="vigenereform" method="post">
+                <div class="form-group">
+                    <textarea class="form-control" name="cipher" id="text" placeholder="Input text" rows="10"></textarea>
+                </div>
+                <div class="extra">
+                    Key: <input class="form-control" name="key" id="key" type="text" autocomplete="off"/>
+                </div>
+                <p>&nbsp;</p>
+                <div>
+                    <button class="btn btn-success" type="submit" name="submit" id="encrypt_vigenere" value="encrypt">Encrypt</button>
+                    <button class="btn btn-success" type="submit" name="submit" id="decrypt_vigenere" value="decrypt">Decrypt</button>
+                    <p>&nbsp;</p>
+                </div>
+            </form>
+            <textarea readonly class="form-control" id="result" name="result" rows="10"></textarea>
+    </div>
+{% endblock %}

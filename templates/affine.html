@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Encrypt
+{% endblock %}
+
+{% block main %}
+    <div id="header">
+        <h1>Affine Cipher</h1>
+    </div>
+    <div id="content">
+            <form id="affineform" method="post">
+                <div class="form-group">
+                    <textarea class="form-control" name="text" id="text" placeholder="Input text" rows="10"></textarea>
+                </div>
+                <div class="extra">
+                    a: <input class="form-control" id="a" name="a" type="number"/>
+                    b: <input class="form-control" id="b" name="b" type="number"/>
+                </div>
+                <p>Note: The value of 'a' must be coprime with 26 (the number of letters in the alphabet), meaning it cannot be divisible by 2 or 13.</p>
+                <div>
+                    <button class="btn btn-success" type="submit" name="submit" id="encrypt_affine" value="encrypt">Encrypt</button>
+                    <button class="btn btn-success" type="submit" name="submit" id="decrypt_affine" value="decrypt">Decrypt</button>
+                    <p>&nbsp;</p>
+                </div>
+            </form>
+            <textarea readonly class="form-control" id="result" name="result" rows="10"></textarea>
+    </div>
+{% endblock %}
